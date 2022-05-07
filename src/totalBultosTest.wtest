@@ -1,0 +1,44 @@
+import cosas2.*
+
+describe "test de totalDeBultos" {
+	
+	test "knightRider, arena, residuos" {
+		
+		assert.equals(1, knightRider.totalDeBultos())
+		assert.equals(1, arena.totalDeBultos())
+		assert.equals(1, residuosRadioactivos.totalDeBultos())
+	}
+
+	test "bumblebee y embalaje de seguridad" {
+		
+		assert.equals(2, bumblebee.totalDeBultos())
+		assert.equals(2, embalajeSeguridad.totalDeBultos())
+	}
+
+	test "paquete de ladrillos" {
+		
+		paqueteLadrillos.cantidadDeLadrillos(60)
+		
+		assert.equals(1, paqueteLadrillos.totalDeBultos())
+		
+		paqueteLadrillos.cantidadDeLadrillos(150)
+		assert.equals(2, paqueteLadrillos.totalDeBultos())
+		
+		paqueteLadrillos.cantidadDeLadrillos(600)
+		assert.equals(3, paqueteLadrillos.totalDeBultos())
+	}
+	
+	test "bateria antiarea" {
+		
+		assert.equals(2, bateriaAntiarea.totalDeBultos())
+	}
+
+	test "contenedor portuario" {
+		
+		contenedor.cargar(bumblebee)
+		contenedor.cargar(paqueteLadrillos)
+		
+		assert.equals(3, contenedor.totalDeBultos())
+	}
+}
+

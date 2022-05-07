@@ -1,0 +1,45 @@
+import camion2.*
+import cosas2.*
+
+describe "test de consecuencias" {
+	
+	test "Bumblebee" {
+	
+	camion.cargar(bumblebee)
+	
+	assert.notThat(bumblebee.estaTransformadoEnAuto())
+	
+	}
+
+	test "paquete de ladrillo" {
+		
+		paqueteLadrillos.cantidadDeLadrillos(12)
+		camion.cargar(paqueteLadrillos)
+		
+		assert.equals(24, paqueteLadrillos.cantidadDeLadrillos())
+	}
+
+	test "arena" {
+		
+		arena.peso(30)
+		camion.cargar(arena)
+		
+		assert.equals(50, arena.peso())
+	}
+	
+	test "contenedor portuario" {
+		contenedor.cargar(paqueteLadrillos)
+		contenedor.cargar(arena)
+		camion.cargar(contenedor)
+		
+		assert.equals(12, paqueteLadrillos.cantidadDeLadrillos())
+		assert.equals(20, arena.peso())
+	}	
+
+	test "residuos radioactivos" {
+		residuosRadioactivos.peso(100)
+		camion.cargar(residuosRadioactivos)
+		
+		assert.equals(115, residuosRadioactivos.peso())
+	}
+}

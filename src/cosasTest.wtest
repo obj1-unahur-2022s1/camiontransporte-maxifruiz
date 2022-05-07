@@ -1,2 +1,49 @@
 import camion.*
 import cosas.*
+
+describe "test de cosas"{	
+	
+	test "peso del paquete de ladrillos" {
+		
+		paqueteLadrillos.cantidadDeLadrillos(50)
+		
+		assert.equals(100, paqueteLadrillos.peso())
+	}
+
+	test "peso de bateria antiarea" {
+		
+		
+		assert.equals(300, bateriaAntiarea.peso())
+	}
+	
+	test "peligrosidad de bateria antiarea" {
+
+		assert.equals(100, bateriaAntiarea.peligrosidad())
+	}
+	
+	test "peso del contenedor portuario" {
+		
+		contenedor.cargar(knightRider)
+		contenedor.cargar(bumblebee)
+		
+		assert.equals(1400, contenedor.peso())
+	}
+
+	test "peligrosidad del contenedor portuario" {
+		
+		contenedor.cargar(knightRider)
+		contenedor.cargar(bumblebee)
+		
+		assert.equals(15, contenedor.peligrosidad())
+	}
+
+	test "peso embalaje de seguridad" {
+		
+		residuosRadioactivos.peso(30)
+		embalajeSeguridad.cosa(residuosRadioactivos)
+		
+		assert.equals(30, embalajeSeguridad.peso())	
+	}
+		
+	
+}
